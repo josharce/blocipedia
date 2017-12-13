@@ -25,6 +25,9 @@ group :development, :test do
   gem 'rails-controller-testing'
 end
 
+# Use Pundit for user access auth
+gem "pundit"
+# Use Devise for auth login
 gem 'devise'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
