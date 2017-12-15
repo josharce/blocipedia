@@ -25,6 +25,8 @@ group :development, :test do
   gem 'rails-controller-testing'
 end
 
+# Use Faker to help seed DB
+gem "faker"
 # Use Pundit for user access auth
 gem "pundit"
 # Use Devise for auth login
