@@ -1,0 +1,6 @@
+<%= form_tag charges_path do %>
+<h3>Create unlimited private wikis by upgrading to a Premium Account!</h3>
+<br />
+<h4>Amount: $15.00 per month</h4>
+<script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
+<% end %>

@@ -25,6 +25,10 @@ group :development, :test do
   gem 'rails-controller-testing'
 end
 
+# Use Figaro for environment variables
+gem 'figaro', '1.0'
+# Use Stripe to handle payments
+gem "stripe"
 # Use Faker to help seed DB
 gem "faker"
 # Use Pundit for user access auth
