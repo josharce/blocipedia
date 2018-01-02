@@ -43,11 +43,13 @@ class ChargesController < ApplicationController
 
   def destroy
     @sub = Stripe::Subscription.retrieve(current_user.charge_id)
+    @private_wikis = Wiki.where(:user_id => current_user.id)
 
     if @sub
       current_user.charge_id = ""
       current_user.update_attribute :standard, true
       current_user.update_attribute :premium, false
+      @private_wikis.each {|wiki| wiki.update_attribute :private, false}
       flash[:notice] = "\"#{current_user.email}\" was downgraded successfully. Sorry to see you go!"
       redirect_to welcome_index_path
       @sub.delete

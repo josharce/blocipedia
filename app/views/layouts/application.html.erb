@@ -13,10 +13,13 @@
     <div class="container">
       <% if user_signed_in? && current_user.premium? %>
         Signed in as: <strong><%= current_user.email %> - <%= current_user.status %></strong> |
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to 'Downgrade Account', charge_path(current_user.email), method: :delete, :class => 'navbar-link', data: {confirm: 'Are you sure you want to downgrade your account?'} %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to 'Downgrade Account', charge_path(current_user.email), method: :delete, :class => 'navbar-link', data: {confirm: 'Are you sure you want to downgrade your account? NOTE: All private wikis you have created will be made public!'} %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% elsif user_signed_in? && current_user.standard? %>
         Signed in as: <strong><%= current_user.email %> - <%= current_user.status %></strong> |
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to 'Upgrade Account', new_charge_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% elsif user_signed_in? && current_user.admin? %>
+        Signed in as: <strong><%= current_user.email %> - <%= current_user.status %></strong> |
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
         <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
         <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
