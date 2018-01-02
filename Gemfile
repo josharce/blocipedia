@@ -27,6 +27,8 @@ end
 
 # Use Figaro for environment variables
 gem 'figaro', '1.0'
+# Use Redcarpert to render markdown
+gem 'redcarpet'
 # Use Stripe to handle payments
 gem "stripe"
 # Use Faker to help seed DB
