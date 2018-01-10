@@ -6,6 +6,13 @@
     <ul>
       <li>Make sure it stays interesting!</li>
     </ul>
+    <br />
+    <p>Collaborators</p>
+    <ul>
+      <% @wiki.collaborators.each do |collaborator| %>
+        <p><%= collaborator %></p>
+      <% end %>
+    </ul>
   </div>
   <div class="col-md-8">
     <%= form_for @wiki do |f| %>
@@ -22,6 +29,10 @@
           <%= f.label :private, class: 'checkbox' do %>
             <%= f.check_box :private %> Private wiki
           <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.label :collaborators %>
+          <%= f.text_field :collaborators, class: 'form-control' %> Add or remove collaborator emails separated by space!
         </div>
       <% end %>
       <div class="form-group">
